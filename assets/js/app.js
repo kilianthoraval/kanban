@@ -5,17 +5,27 @@ const app = {
   // fonction d'initialisation, lancée au chargement de la page
   init: function () {
     console.log('app.init !');
-    app.addListenerToAction();
+    app.addListenerToActions();
   },
 
-  addListenerToAction: function () {
+  addListenerToActions: function () {
     let button = document.getElementById('addListButton');
     button.addEventListener('click', app.showAddListModal);
+    let closeButton = document.querySelectorAll('.close');
+    console.log(closeButton);
+    closeButton.forEach(element => {
+      element.addEventListener('click', app.hideModals)     
+    });
   },
 
   showAddListModal: function () {
     let modal = document.getElementById('addListModal');
     modal.classList.add('is-active');
+  },
+
+  hideModals: function () {
+    let closeModal = document.getElementById('addListModal');
+    closeModal.classList.remove('is-active');
   }
 
 };
