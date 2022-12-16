@@ -12,10 +12,14 @@ const app = {
     let button = document.getElementById('addListButton');
     button.addEventListener('click', app.showAddListModal);
     let closeButton = document.querySelectorAll('.close');
-    console.log(closeButton);
     closeButton.forEach(element => {
       element.addEventListener('click', app.hideModals)     
     });
+    // let form = document.getElementById('is-success');
+    // form.addEventListener('submit', app.handleAddListForm);
+
+    app.getForm = document.querySelector('.modal-card form');
+    app.getForm.addEventListener('submit', app.handleAddListForm)
   },
 
   showAddListModal: function () {
@@ -26,7 +30,15 @@ const app = {
   hideModals: function () {
     let closeModal = document.getElementById('addListModal');
     closeModal.classList.remove('is-active');
+  },
+
+  handleAddListForm: function (event) {
+    event.preventDefault();
+    formData = new formData(app.getForm);
+    console.log(formData);
+
   }
+
 
 };
 
