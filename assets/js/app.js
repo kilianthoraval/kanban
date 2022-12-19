@@ -3,6 +3,7 @@
 const app = {
   init: function () {
     list.addListenerToActions();
+    card.addListenerToActions();
   },
 };
 

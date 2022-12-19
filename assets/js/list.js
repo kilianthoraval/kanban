@@ -7,7 +7,7 @@ const list = {
     addListButton.addEventListener('click', list.showAddModal);
 
     // Fermeture au clic sur les boutons
-    const closeButtons = document.querySelectorAll('.close');
+    const closeButtons = list.addModal.querySelectorAll('.close');
     // for (const button of closeButtons) {
     //   button.addEventListener('click', list.hideModal);
     // }
