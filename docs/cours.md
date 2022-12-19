@@ -118,3 +118,12 @@ const fetchSomething = async function() {
   }
 }
 ```
+
+## CORS 
+
+Attention par défaut on ne peut faire des requetes http via fetch que vers le même domaine que celui qui héberge les scripts executés dans le navigateur.
+
+Si c'est pas le cas, si on veut envoyer des requetes http via fetch vers un autre domaine. Il faut que le serveur intérrogé spécifie sa politique de CORS
+
+CORS signifie Cross Origin Ressource Sharing, on dirait en français une politique de partage de ressources entre les origine (les domaines)
+
