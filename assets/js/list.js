@@ -45,6 +45,9 @@ const list = {
     // On reconfigure la copie
     const title = clone.querySelector('h2');
     title.textContent = name;
+    // attention il faut bien rajouter un ecouteur sur le bouton de chaque nouvelle liste
+    const button = clone.querySelector('.add-card');
+    button.addEventListener('click', card.showAddModal);
 
     // On insère la copie avant le voisin déjà présent
     const addColumn = document.getElementById('add-column');
