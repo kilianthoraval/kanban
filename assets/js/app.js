@@ -1,14 +1,12 @@
-
-// on objet qui contient des fonctions
-var app = {
-
-  // fonction d'initialisation, lancée au chargement de la page
+// objet qui représente l'application
+// servira à initialiser les différentes fonctionnalités
+const app = {
   init: function () {
-    console.log('app.init !');
-  }
-
+    list.addListenerToActions();
+    card.addListenerToActions();
+  },
 };
 
-
-// on accroche un écouteur d'évènement sur le document : quand le chargement est terminé, on lance app.init
-document.addEventListener('DOMContentLoaded', app.init );
+// la métode init sera executée quand l'événement DOMContentLoaded aura lieu cad
+// quand le html aura été lu en entier par le navigateur
+document.addEventListener('DOMContentLoaded', app.init);
