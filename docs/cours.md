@@ -18,6 +18,7 @@ En front, on ne va plus génèrer de requete HTTP par défaut en réponse aux in
 ## Nos objectifs principaux en front
 
 - Cibler un élement / traverser le DOM
+  - `document.getElementById('id')`
   - `document.querySelector('.selector')`
   - `document.querySelectorAll('.selector')`
   - `element.previousElementSibling`

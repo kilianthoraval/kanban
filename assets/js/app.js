@@ -1,14 +1,26 @@
-
-// on objet qui contient des fonctions
-var app = {
-
-  // fonction d'initialisation, lancée au chargement de la page
-  init: function () {
-    console.log('app.init !');
-  }
-
+// objet qui contient tout ce qui est lié à l'utilisation des listes
+const list = {
+  addListenerToActions: function() {
+    const addListButton = document.getElementById('addListButton');
+    addListButton.addEventListener('click', list.showAddModal);
+  },
+  showAddModal: function() {
+    const addModal = document.getElementById('addListModal');
+    addModal.classList.add('is-active');
+  },
 };
 
+// objet qui contient tout ce qui est lié à l'utilisation des card
+const card = {};
 
-// on accroche un écouteur d'évènement sur le document : quand le chargement est terminé, on lance app.init
-document.addEventListener('DOMContentLoaded', app.init );
+// objet qui représente l'application
+// servira à initialiser les différentes fonctionnalités
+const app = {
+  init: function () {
+    list.addListenerToActions();
+  },
+};
+
+// la métode init sera executée quand l'événement DOMContentLoaded aura lieu cad
+// quand le html aura été lu en entier par le navigateur
+document.addEventListener('DOMContentLoaded', app.init);
