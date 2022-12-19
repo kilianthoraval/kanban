@@ -33,5 +33,27 @@ const list = {
     // on peut accéder à une donnée via la méthode get à qui on passe en argument
     // le nom / la clé de la valeur à récupérer
     const listName = formData.get('name');
+    list.makeInDOM(listName);
+  },
+  makeInDOM: function(name) {
+    // On cible le template
+    const template = document.querySelector("#list-template");
+
+    // On clone le contenu du template
+    const clone = document.importNode(template.content, true);
+
+    // On reconfigure la copie
+    const title = clone.querySelector('h2');
+    title.textContent = name;
+
+    // On insère la copie avant le voisin déjà présent
+    const addColumn = document.getElementById('add-column');
+    addColumn.before(clone);
+
+    list.hideModal();
+    list.resetForm();
+  },
+  resetForm: function() {
+    list.form.reset();
   },
 };

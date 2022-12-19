@@ -27,6 +27,7 @@ En front, on ne va plus génèrer de requete HTTP par défaut en réponse aux in
 - Créer des élements
   - `document.createElement('div')`
   - `template.content.cloneNode(true)`
+  - `document.importNode(template.content, true);`
 - Modifier des élements
   - `element.textContent`
   - `element.classList`
