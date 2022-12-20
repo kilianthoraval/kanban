@@ -2,9 +2,9 @@
 
 Au choix, implémente ce que tu peux parmi les fonctionalités suivantes :
 
-## Finir la récupération et l'ajout de cartes
+## Finir l'ajout de cartes
 
-Si tu n'avais pas entamé l'ajout et la récupération des cartes via l'api de s6, commence par ça. C'est le même principe que pour les listes corrigées ensemble.
+Si tu n'avais pas entamé l'ajout des cartes via l'api de s6, commence par ça. C'est le même principe que pour les listes corrigées ensemble.
 
 ## Éditer une liste
 

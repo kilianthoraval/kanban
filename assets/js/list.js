@@ -1,6 +1,12 @@
 // objet qui contient tout ce qui est lié à l'utilisation des listes
 const list = {
   addModal: document.getElementById('addListModal'),
+  init: async function() {
+    const lists = await list.getAll();
+    for (const listData of lists) {
+      list.makeInDOM(listData.name, listData.id);
+    }
+  },
   addListenerToActions: function() {
     // Ouverture de la modale au clic sur le bouton
     const addListButton = document.getElementById('addListButton');
@@ -35,7 +41,7 @@ const list = {
     const listName = formData.get('name');
     list.makeInDOM(listName);
   },
-  makeInDOM: function(name) {
+  makeInDOM: function(name, id) {
     // On cible le template
     const template = document.querySelector("#list-template");
 
@@ -45,6 +51,10 @@ const list = {
     // On reconfigure la copie
     const title = clone.querySelector('h2');
     title.textContent = name;
+    // on cible la div du clone qui possède l'attribut portant l'id
+    const panel = clone.querySelector('.panel');
+    // on reconfigure cet attribut pour mémoriser l'id de la liste qui resservira plus tard, notamment pour l'ajout des cartes
+    panel.setAttribute('data-list-id', id);
     // attention il faut bien rajouter un ecouteur sur le bouton de chaque nouvelle liste
     const button = clone.querySelector('.add-card');
     button.addEventListener('click', card.showAddModal);
@@ -58,5 +68,21 @@ const list = {
   },
   resetForm: function() {
     list.form.reset();
+  },
+  getAll: async function() {
+    try {
+      const response = await fetch('http://localhost:3000/lists');
+      const body = await response.json();
+      if (response.ok) {
+        return body;
+      }
+      else {
+        throw new Error(body.message);
+      }
+    }
+    catch (error) {
+      alert('Erreur de récupération');
+      console.error(error);
+    }
   },
 };
