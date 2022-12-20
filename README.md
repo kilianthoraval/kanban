@@ -1,3 +1,80 @@
+# oKanban-front, suite et fin
+
+Au choix, implémente ce que tu peux parmi les fonctionalités suivantes :
+
+## Finir la récupération et l'ajout de cartes
+
+Si tu n'avais pas entamé l'ajout et la récupération des cartes via l'api de s6, commence par ça. C'est le même principe que pour les listes corrigées ensemble.
+
+## Éditer une liste
+
+Tu as du remarquer que dans chaque liste, à côté du `<h2>`, se cache un petit formulaire. Il est prévu pour éditer le nom des listes !
+
+Voici ce qu'il faut mettre en place : 
+- Lorsqu'on double click sur un titre, on masque le `<h2>`, et on affiche le formulaire.
+- Lorsqu'on valide le formulaire (en tapant sur "Entrée"), on appelle l'API.
+- Si l'api renvoie une erreur, on ré-affiche le titre sans le modifier.
+- Si l'api renvoie un succès, on modifie le `<h2>`, et on le réaffiche.
+- Dans tous les cas, on masque le formulaire !
+
+<details>
+<summary>De l'aide</summary>
+
+- L'évènement pour un double click est "dblclick".
+- Pour afficher/masquer quelque chose, Bulma nous fournit la classe CSS "is-hidden".
+- Pour tout le reste, inspire toi de ce qui a été fait les jours précédents : récuperer un élément, lui ajouter un écouter, éviter le fonctionnement par défaut des events, ...
+- Et surtout, n'oublie pas de brancher toutes ces nouvelles intercations sur les éléments (listes et cartes) au moment de leur création !
+
+</details>
+
+## Éditer une carte
+
+Mets en place le même fonctionnement pour éditer les titres des cartes.
+
+Attention :
+
+- On ne clique pas sur le nom, mais sur l'icone "stylo" juste à côté.
+- Le formulaire n'existe pas... rajoute le dans le template !
+
+## Supprimer une carte
+
+Un clic sur l'icone de poubelle doit supprimer la carte.
+
+## Supprimer une liste
+
+Rajoute l'icône permettant de supprimer une liste et donne lui le comportement adéquat.
+
+Il serait intéressant de demander la confirmation à l'utilisateur avant la suppression. 😉
+
+## Gérer la couleur d'une carte
+
+Ajoute la possibilité de changer la couleur d'une carte, que ce soit lors de sa création ou de sa modification.
+
+## Les drag and drop
+
+Pour changer l'ordre des cartes dans une liste, et l'ordre des listes dans la page, tu peux utiliser le drag'n'drop ("glisser-déposer", en français).
+
+Ici encore, 2 solutions s'offrent à toi :
+
+- Tout faire à la main! Il va falloir jouer avec 4 types d'évènement, et définir un bon paquet de paramètres. Tu peux lire [la page de MDN](https://developer.mozilla.org/fr/docs/Web/API/API_HTML_Drag_and_Drop) pour t'aider, mais attends toi à de la difficulté !
+- Utiliser un plugin Javascript ! [SortableJS](https://github.com/SortableJS/Sortable), par exemple.
+
+Quelque soit la solution choisie, il faudra appeller l'API pour mettre à jour les infos de la carte/liste, et peut-être aussi des autres cartes/listes ! (et oui, si la carte numéro 1 devient la numéro 3, alors la numéro 2 devient... :thinking: )
+
+## Tags des cartes
+
+Plus qu'à nous occuper des tags !
+
+- Afficher les tags de chaque cartes (sous forme d'étiquettes par exemple. Bulma est ton ami 😉).
+- Associer un tag existant à une carte (va falloir réfléchir un peu !)
+- Enlever un tag d'une carte en double cliquant dessus.
+
+## Bonus (qui ne sera pas corrigé) :
+
+Faire le CRUD complet des tags (afficher tous les tags existants, ajouter un tag, modifier un tag, supprimer un tag).
+
+---
+
 # oKanban-front, jour 2
 
 ## Dynamic data !
