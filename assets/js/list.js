@@ -3,6 +3,7 @@ const list = {
   addModal: document.getElementById('addListModal'),
   init: async function() {
     const lists = await list.getAll();
+    console.log('ici', lists);
     for (const listData of lists) {
       list.makeInDOM(listData.name, listData.id);
     }

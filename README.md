@@ -2,9 +2,12 @@
 
 Au choix, implémente ce que tu peux parmi les fonctionalités suivantes :
 
-## Finir l'ajout de cartes
+## Finir l'ajout de cartes dans le DOM et la persistance
 
-Si tu n'avais pas entamé l'ajout des cartes via l'api de s6, commence par ça. C'est le même principe que pour les listes corrigées ensemble.
+Si tu n'avais pas entamé l'ajout des cartes via l'api de s6, commence par ça. 
+
+- Retrouve le code qui permet d'initialiser la récupération des listes, tu verras qu'on récupère en même temps les card. Crée les cartes dans le DOM en fonction des données récupéres.
+- Termine l'ajout de card via le formulaire sur le bouton plus. Quand on le valide, en plus d'ajouter la nouvelle card dans le DOM, il faut appeler l'api pour la persistance (le endpoint /cards en POST), inspire toi de ce qui a été fait pour les listes
 
 ## Éditer une liste
 
