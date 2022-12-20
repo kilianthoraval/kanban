@@ -125,5 +125,5 @@ Attention par défaut on ne peut faire des requetes http via fetch que vers le m
 
 Si c'est pas le cas, si on veut envoyer des requetes http via fetch vers un autre domaine. Il faut que le serveur intérrogé spécifie sa politique de CORS
 
-CORS signifie Cross Origin Ressource Sharing, on dirait en français une politique de partage de ressources entre les origine (les domaines)
+CORS signifie Cross Origin Ressource Sharing, on dirait en français une politique de partage de ressources entre les origine (les domaines). C'est à dire que le serveur devra spécifier des entêtes pour autouriser ou non certaines origines, [voir doc](https://developer.mozilla.org/fr/docs/Web/HTTP/CORS#en-t%C3%AAtes_de_r%C3%A9ponse_http). Pour spécifier ces entêtes côté serveur avec express on peut utiliser la fonction [response.set()](https://expressjs.com/fr/api.html#res.set) ou on peut aussi utiliser la [package cors](https://www.npmjs.com/package/cors) pour tout configurer
 

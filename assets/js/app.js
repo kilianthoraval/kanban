@@ -2,6 +2,7 @@
 // servira à initialiser les différentes fonctionnalités
 const app = {
   init: function () {
+    list.init();
     list.addListenerToActions();
     card.addListenerToActions();
   },
