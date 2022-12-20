@@ -32,14 +32,13 @@ const list = {
   hideModal: function() {
     list.addModal.classList.remove('is-active');
   },
-  handleAddForm: function(event) {
+  handleAddForm: async function(event) {
     event.preventDefault();
     // on construit un objet contenant toutes les données du formulaires
     const formData = new FormData(list.form);
-    // on peut accéder à une donnée via la méthode get à qui on passe en argument
-    // le nom / la clé de la valeur à récupérer
-    const listName = formData.get('name');
-    list.makeInDOM(listName);
+    // j'appelle la méthode qui va s'occuper d'appeler l'api pour faire persister la nouvelle liste en fonction des données saisies dans le formulaire
+    const newList = await list.save(formData);
+    list.makeInDOM(newList.name, newList.id);
   },
   makeInDOM: function(name, id) {
     // On cible le template
@@ -72,6 +71,26 @@ const list = {
   getAll: async function() {
     try {
       const response = await fetch('http://localhost:3000/lists');
+      const body = await response.json();
+      if (response.ok) {
+        return body;
+      }
+      else {
+        throw new Error(body.message);
+      }
+    }
+    catch (error) {
+      alert('Erreur de récupération');
+      console.error(error);
+    }
+  },
+  save: async function(data) {
+    try {
+      // je fais un fetch avec des options pour choisir la méthode post et le corps de la requete, ici les données du paramètre
+      const response = await fetch('http://localhost:3000/lists', {
+        method: 'POST',
+        body: data,
+      });
       const body = await response.json();
       if (response.ok) {
         return body;
